@@ -40,17 +40,17 @@ Suitable for:
 
 File Structure:
     
-lfu/
-│
-├── code/
-│ ├── .gitignore
-│ └── lfu.c # Main C program implementing LFU
-│
-├── illustration/
-│ └── Lfu illustration.png # Diagram explaining LFU behaviour
-│
-├── .gitignore
-└── README.md
+    lfu/
+    │
+    ├── code/
+    │ ├── .gitignore
+    │ └── lfu.c # Main C program implementing LFU
+    │
+    ├── illustration/
+    │ └── Lfu illustration.png # Diagram explaining LFU behaviour
+    │
+    ├── .gitignore
+    └── README.md
 
 Algorithm:
 
@@ -77,17 +77,17 @@ Print frames and hit/miss after every reference
 
 Sample Output:
 
-Ref | Frames
-----+---------------------
-  7 |  7  -  -   (M)
-  0 |  7  0  -   (M)
-  1 |  7  0  1   (M)
-  2 |  2  0  1   (M)
-  0 |  2  0  1   (H)
-  3 |  2  0  3   (M)
-...
-Total refs: 12
-Hits: 3
-Misses: 9
-Hit ratio: 25.00%
+    Ref | Frames
+    ----+---------------------
+    7 |  7  -  -   (M)
+    0 |  7  0  -   (M)
+    1 |  7  0  1   (M)
+    2 |  2  0  1   (M)
+    0 |  2  0  1   (H)
+    3 |  2  0  3   (M)
+    ...
+    Total refs: 12
+    Hits: 3
+    Misses: 9
+    Hit ratio: 25.00%
 
