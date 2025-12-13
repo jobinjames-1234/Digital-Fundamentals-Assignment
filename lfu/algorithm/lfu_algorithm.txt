@@ -1,0 +1,64 @@
+ALGORITHM – LFU PAGE REPLACEMENT (with LRU Tie-Breaker)
+
+step 1: Start the program.
+
+step 2: Read the number of page references and the frame capacity.
+
+step 3: Initialize three arrays for each frame position:
+   • frames[i] = -1 to show empty frame
+   • freq[i] = 0 to store how many times each page was used
+   • time_stamp[i] = 0 to store the last-used time for tie-breaking
+
+step 4: Set time_counter = 0, hits = 0, and misses = 0.
+
+step 5: For each page reference in the input sequence, repeat steps 6–17.
+
+step 6: Increase the global time counter (time_counter++).
+
+step 7: Check whether the current page is already present in any frame.
+ • If found → it is a hit
+ • If not found → it is a miss
+
+Handling a HIT
+
+step 8: If the page is found in some frame:
+ • Increment its frequency value (freq[index]++)
+ • Update its timestamp (time_stamp[index] = time_counter)
+ • Increase hit counter (hits++)
+ • Display frame contents
+ • Go to next page reference
+
+Handling a MISS
+
+step 9: Increase miss counter (misses++).
+
+step 10: Check if there is any empty frame slot.
+ • If an empty frame exists → place the new page there.
+ • Set freq = 1 and update timestamp.
+
+step 11: If no empty frame exists, apply LFU replacement policy:
+
+Victim Selection Rule
+
+step 12: Among all frames, find the page with the smallest frequency.
+
+step 13: If multiple pages have the same minimum frequency, break the tie using:
+ → oldest timestamp (least recently used among them)
+
+step 14: Choose the victim frame and replace it with the new page.
+
+step 15: Set the new page’s frequency to 1 and update its timestamp.
+
+step 16: Display the frame contents after placement or replacement.
+
+End of Processing
+
+step 17: After all page references are processed, calculate:
+ • Total references
+ • Total hits
+ • Total misses
+ • Hit ratio = (hits / total references) × 100
+
+step 18: Display the simulation summary.
+
+step 19: Stop the program.
