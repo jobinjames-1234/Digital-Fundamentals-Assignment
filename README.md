@@ -55,25 +55,25 @@ Tag = BlockNumber / CacheSize
 
 ---
 ## Sample Output
-DIRECT MAPPING CACHE (WORKING)
----------------------------------------------------------------------------------
-| Block | Index | Tag | Hit/Miss | Action           | Cache Contents            |
----------------------------------------------------------------------------------
-|     1 |     1 |   0 | MISS     | Loaded/Replaced  | - 0 - - |
-|     2 |     2 |   0 | MISS     | Loaded/Replaced  | - 0 0 - |
-|     3 |     3 |   0 | MISS     | Loaded/Replaced  | - 0 0 0 |
-|     4 |     0 |   1 | MISS     | Loaded/Replaced  | 1 0 0 0 |
-|     5 |     1 |   1 | MISS     | Loaded/Replaced  | 1 1 0 0 |
-|     1 |     1 |   0 | MISS     | Loaded/Replaced  | 1 0 0 0 |
-|     6 |     2 |   1 | MISS     | Loaded/Replaced  | 1 0 1 0 |
-|     2 |     2 |   0 | MISS     | Loaded/Replaced  | 1 0 0 0 |
-|     7 |     3 |   1 | MISS     | Loaded/Replaced  | 1 0 0 1 |
-|     3 |     3 |   0 | MISS     | Loaded/Replaced  | 1 0 0 0 |
----------------------------------------------------------------------------------
+   DIRECT MAPPING CACHE (WORKING)
+   ---------------------------------------------------------------------------------
+   | Block | Index | Tag | Hit/Miss | Action           | Cache Contents            |
+   ---------------------------------------------------------------------------------
+   |     1 |     1 |   0 | MISS     | Loaded/Replaced  | - 0 - - |
+   |     2 |     2 |   0 | MISS     | Loaded/Replaced  | - 0 0 - |
+   |     3 |     3 |   0 | MISS     | Loaded/Replaced  | - 0 0 0 |
+   |     4 |     0 |   1 | MISS     | Loaded/Replaced  | 1 0 0 0 |
+   |     5 |     1 |   1 | MISS     | Loaded/Replaced  | 1 1 0 0 |
+   |     1 |     1 |   0 | MISS     | Loaded/Replaced  | 1 0 0 0 |
+   |     6 |     2 |   1 | MISS     | Loaded/Replaced  | 1 0 1 0 |
+   |     2 |     2 |   0 | MISS     | Loaded/Replaced  | 1 0 0 0 |
+   |     7 |     3 |   1 | MISS     | Loaded/Replaced  | 1 0 0 1 |
+   |     3 |     3 |   0 | MISS     | Loaded/Replaced  | 1 0 0 0 |
+   ---------------------------------------------------------------------------------
 
-Total Hits   = 0
-Total Misses = 10
-Hit Ratio    = 0.00
+   Total Hits   = 0
+   Total Misses = 10
+   Hit Ratio    = 0.00
 
 
 ---
