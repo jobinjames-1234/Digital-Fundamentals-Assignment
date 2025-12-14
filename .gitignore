@@ -1,3 +1,7 @@
 .vscode/
 
 a.exe
+
+*.png
+
+!direct-mapping-workflow.png
