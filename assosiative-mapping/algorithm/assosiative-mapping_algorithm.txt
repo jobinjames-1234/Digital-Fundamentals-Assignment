@@ -1,1 +1,52 @@
-//assosiative-mapping algorithm
+Algorithm: Associative Mapping with FIFO Replacement
+
+Step 1: Start.
+
+Step 2: Read the number of cache lines.
+
+Step 3: Read the block size (number of words per block).
+
+Step 4: Read the number of memory addresses and the reference string.
+
+Step 5: Initialize all cache tags to empty (−1).
+
+Step 6: Initialize the following variables:
+    a. hits = 0
+    b. misses = 0
+    c. filled = 0
+    d. fifoIndex = 0
+
+Step 7: For each memory address in the reference string, perform the following steps:
+
+  Step 7.1: Calculate the TAG and WORD fields as:
+    TAG = address / blockSize
+    WORD = address % blockSize
+
+  Step 7.2: Compare the calculated TAG with all cache tags (associative search).
+
+  Step 7.3: If a matching TAG is found:
+    a. Increment hits.
+    b. Mark the access as HIT.
+    c. No replacement is performed.
+
+  Step 7.4: Else (TAG not found):
+    a. Increment misses.
+    b. Mark the access as MISS.
+
+    Step 7.4.1: If the cache is not full:
+      – Insert the TAG into the next free cache line.
+      – Increment filled.
+
+    Step 7.4.2: Else (cache is full):
+      – Replace the TAG in the cache line pointed by fifoIndex.
+      – Update
+        fifoIndex = (fifoIndex + 1) mod cacheLines.
+
+  Step 7.5: Display the address, TAG, WORD, hit/miss status, FIFO action, and current cache contents in tabular form.
+
+Step 8: After processing all memory addresses, calculate:
+    Hit Ratio = hits / (hits + misses).
+
+Step 9: Display total hits, total misses, and hit ratio.
+
+Step 10: Stop.
