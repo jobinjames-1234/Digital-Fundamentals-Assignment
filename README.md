@@ -40,17 +40,16 @@ Suitable for:
 
 File Structure:
     
-    lfu/
-    │
-    ├── code/
-    │ ├── .gitignore
-    │ └── lfu.c # Main C program implementing LFU
-    │
-    ├── illustration/
-    │ └── Lfu illustration.png # Diagram explaining LFU behaviour
-    │
-    ├── .gitignore
-    └── README.md
+      lfu:
+      algorithm:
+         lfu_algorithm.txt
+      code:
+         lfu.c
+      illustration:
+         lfu_illustration.png
+      output:
+         lfu_output.txt
+
 
 Algorithm:
 
