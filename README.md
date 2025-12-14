@@ -75,7 +75,7 @@ If two or more pages have the same frequency, the tie is resolved using **LRU (L
 
 # LRU PAGE REPLACEMENT ALGORITHM
 
-**Author:** Jidhin Mathew
+**Author:** Jithin Mathew
 
 ### Author Role
 
@@ -110,7 +110,7 @@ The **Least Recently Used (LRU)** algorithm replaces the page that has **not bee
 
 # DIRECT MAPPING CACHE SIMULATION
 
-**Author:** ___________________________
+**Author:** Jibin P Chacko
 
 ### Author Role
 
@@ -141,7 +141,7 @@ Direct mapping maps each memory block to **exactly one cache line** using a fixe
 
 # ASSOCIATIVE CACHE MAPPING WITH FIFO
 
-**Author:** ___________________________
+**Author:** Jiya Thomas
 
 ### Author Role
 
