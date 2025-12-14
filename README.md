@@ -1,403 +1,232 @@
-# Digital-Fundamentals-Assignment For Gorup
-LFU Page Replacement Algorithm (C Program)
-
-This project implements the LFU (Least Frequently Used) page replacement algorithm using C.
-LFU replaces the page with the lowest frequency of use.
-If multiple pages have the same frequency, the tie is broken using LRU (Least Recently Used) by checking the oldest timestamp.
-
-🔍 What is LFU?
-
-The Least Frequently Used page replacement algorithm works by:
-
-    . Counting how many times each page is used.
-
-    . Replacing the page with the least usage frequency when a page fault occurs.
-
-    . If two or more pages have the same frequency, the page that was used longest ago is removed.
-
-    . This algorithm helps in cases where frequently used pages should stay in memory longer.
-
-✅ Features
-
-Tracks:
-
-    . Page hits
-
-    . Page misses
-
-    . Frequency count of each page
-
-    . Timestamp for LRU tie-breaking
-
-    . Step-by-step frame display after each page reference
-
-    . Clean and simple C implementation
-
-Suitable for:
-
-    . College lab programs
-
-    . OS assignment projects
-
-File Structure:
-    
-      lfu:
-      algorithm:
-         lfu_algorithm.txt
-      code:
-         lfu.c
-      illustration:
-         lfu_illustration.png
-      output:
-         lfu_output.txt
-
-
-Algorithm:
-
-Initialize frames as empty
-Initialize frequency[] and timestamp[]
-
-For each page in reference string:
-    If page is found → HIT:
-        Increase frequency
-        Update timestamp
-
-    Else → MISS:
-        If empty frame exists:
-            Insert page with freq=1 and timestamp
-
-        Else:
-            Select a victim:
-                Page with smallest frequency
-                Tie → oldest timestamp (LRU)
-
-            Replace victim with new page
-
-Print frames and hit/miss after every reference
-
-Sample Output:
-
-    Ref | Frames
-    ----+---------------------
-    7 |  7  -  -   (M)
-    0 |  7  0  -   (M)
-    1 |  7  0  1   (M)
-    2 |  2  0  1   (M)
-    0 |  2  0  1   (H)
-    3 |  2  0  3   (M)
-    ...
-    Total refs: 12
-    Hits: 3
-    Misses: 9
-    Hit ratio: 25.00%
-
-# LRU (Least Recently Used) Page Replacement Algorithm
-
-## Overview
-This project implements the **Least Recently Used (LRU) page replacement algorithm** in C.  
-The program simulates memory management in an operating system by tracking page references and replacing the page that has not been used for the longest period of time when a page fault occurs.
-
-The working of the algorithm is displayed **step-by-step in tabular format**, making it suitable for **academic assignments and lab records**.
-# Direct Mapping Cache Simulation
-
-## Overview
-This project implements **Direct Mapping Cache Memory** in C.  
-Each memory block is mapped to exactly one cache line using a fixed mapping function.
-
-The program displays the cache working **step-by-step in tabular format**, including
-block number, index calculation, tag comparison, hit/miss status, and cache contents.
-# Associative Cache Mapping with FIFO Replacement
-
-## Overview
-This project implements **Associative Cache Mapping** using the **FIFO (First-In First-Out) replacement policy** in C.  
-The program simulates cache behavior by dividing memory addresses into **TAG** and **WORD** fields, performing associative search, and displaying the complete working in **tabular format**.
-
-This implementation is designed as part of a **Cache Memory / Computer Organization laboratory assignment**.
+# Digital-Fundamentals-Assignment (Group Project)
 
 ---
 
-## Objectives
-- To simulate the **LRU page replacement algorithm**
-- To identify **page hits and page faults**
-- To replace the **least recently used page**
-- To display the complete working in **tabular form**
-- To calculate **total hits, total misses, and hit ratio**
+## 📘 Overview
+
+This repository contains **multiple Digital Fundamentals and Computer Organization laboratory implementations** written in **C**, designed strictly according to **college assignment and lab-record criteria**.
+
+Each module:
+
+* Explains the **theory**, **algorithm**, and **working** clearly
+* Displays execution in **step-by-step tabular format**
+* Calculates **hits, misses, and hit ratio** wherever applicable
 
 ---
 
-## Algorithm Used
-**Least Recently Used (LRU)**
+# LFU PAGE REPLACEMENT ALGORITHM
 
-When a page fault occurs and no free frame is available, the page that was **used least recently** is replaced.
-- To understand **direct mapping cache technique**
-- To compute **index and tag values**
-- To identify **cache hits and misses**
-- To visualize cache behavior using **tabular output**
-- To calculate **hit ratio**
+**Author:** Jobin James
+
+### Author Role
+
+Responsible for algorithm design, frequency tracking logic, LRU tie-breaking mechanism, and structured output formatting.
+
+## 🔍 What is LFU?
+
+The **Least Frequently Used (LFU)** page replacement algorithm replaces the page with the **lowest usage frequency**.
+
+If two or more pages have the same frequency, the tie is resolved using **LRU (Least Recently Used)** by checking the **oldest timestamp**.
+
+## ✅ Features
+
+* Tracks page hits and misses
+* Maintains frequency count for each page
+* Uses timestamp for LRU tie-breaking
+* Displays frame status after every reference
+* Clean and simple C implementation
+
+## 🧠 Algorithm
+
+            1. Initialize frames as empty
+            2. Initialize frequency[] and timestamp[]
+            3. For each page reference:
+
+            * If page found → **HIT**
+
+                * Increase frequency
+                * Update timestamp
+            * Else → **MISS**
+
+                * If empty frame exists, insert page
+                * Else replace page with:
+
+                * Minimum frequency
+                * Oldest timestamp (LRU tie-break)
+            4. Display frames after each reference
+
+## 📊 Sample Output
+
+```
+            Ref | Frames
+            ----+---------------------
+            7 |  7  -  -   (M)
+            0 |  7  0  -   (M)
+            1 |  7  0  1   (M)
+            2 |  2  0  1   (M)
+            0 |  2  0  1   (H)
+            ...
+            Hits: 3
+            Misses: 9
+            Hit Ratio: 25.00%
+```
 
 ---
 
-## Address Mapping
-In Direct Mapping, the address is divided as:
+# LRU PAGE REPLACEMENT ALGORITHM
+
+**Author:** Jidhin Mathew
+
+### Author Role
+
+Implemented timestamp-based tracking, frame replacement logic, and tabular output formatting.
+
+## 🧠 Overview
+
+The **Least Recently Used (LRU)** algorithm replaces the page that has **not been used for the longest time**.
+
+## 🧮 Algorithm Steps
+
+            1. Initialize frames as empty
+            2. For each page reference:
+
+            * If present → HIT
+            * Else → MISS
+            * If frames full, replace least recently used page
+            3. Display working in table format
+            4. Calculate hit ratio
+
+## 📊 Sample Output (Tabular)
+
+            ```
+            | Page | Hit/Miss | Action         | Frames       |
+            |------|----------|----------------|--------------|
+            |  55  | MISS     | Inserted       | 1 55 - -     |
+            |  55  | HIT      | No Change      | 1 55 - -     |
+            |   3  | MISS     | Replaced (LRU) | 3 55 7 9     |
+            ```
+
+---
+
+# DIRECT MAPPING CACHE SIMULATION
+
+**Author:** ___________________________
+
+### Author Role
+
+Designed cache mapping logic, index/tag calculation, and conflict-miss visualization.
+
+## 🧠 Overview
+
+Direct mapping maps each memory block to **exactly one cache line** using a fixed function.
+
+## 🔢 Address Format
 
 | TAG | INDEX |
 
+**Formulas:**
 
-Formulas:
-Index = BlockNumber % CacheSize
-Tag = BlockNumber / CacheSize
-- To understand **associative cache mapping**
-- To implement **TAG and WORD address fields**
-- To apply **FIFO replacement policy**
-- To display cache working step-by-step in **tabular form**
-- To calculate **cache hits, misses, and hit ratio**
+            * Index = BlockNumber % CacheSize
+            * Tag   = BlockNumber / CacheSize
+
+## 📊 Sample Output
+
+            ```
+            | Block | Index | Tag | Hit/Miss | Cache |
+            |-------|-------|-----|----------|-------|
+            |   1   |   1   |  0  | MISS     | - 0 - - |
+            ```
 
 ---
 
-## Cache Address Format
-In associative mapping, a memory address is divided as:
+# ASSOCIATIVE CACHE MAPPING WITH FIFO
+
+**Author:** ___________________________
+
+### Author Role
+
+Implemented associative search, FIFO replacement logic, and full tabular cache visualization.
+
+## 🧠 Overview
+
+Associative mapping allows a block to be placed in **any cache line**. FIFO decides replacement order.
+
+## 🔢 Address Format
 
 | TAG | WORD |
 
+**Formulas:**
+
+* TAG  = Address / BlockSize
+* WORD = Address % BlockSize
+
+## 📊 Sample Output
+
+            ```
+            | Address | TAG | WORD | Hit/Miss | Cache |
+            |---------|-----|------|----------|-------|
+            |   999   | 249 |  3   | MISS     | 249 13 19 5 |
+            ```
+
+---
+
+# QUEUE IMPLEMENTATION IN C
+
+**Author:** Josekutty Shoby
+
+### Author Role
+
+Implemented FIFO logic, overflow/underflow handling, and menu-driven operations.
+
+## 🧠 Overview
+
+A basic **array-based queue** implementation demonstrating FIFO behavior.
+
+## 🔁 Operations
+
+* Enqueue
+* Dequeue
+* Peek
+* Display
+
+Handles:
+
+* Queue Overflow
+* Queue Underflow
+
+---
+
+## 🛠 Algorithm
 
 
-- **TAG** identifies the memory block
-- **WORD** identifies the word inside the block
-- There is **no index field** in associative mapping
-
-Formulas used:
-TAG = Address / BlockSize
-WORD = Address % BlockSize
-
+            Step 1: Start the program.
+            Step 2: Declare the queue array with fixed size and initialize front = -1, rear = -1, hits = 0, and misses = 0.
+            Step 3: For each enqueue request, check whether the element is already present in the queue by scanning from front to rear.
+            Step 4: If the element is found, increment the hit count, display the current queue content, and mark the result as Hit.
+            Step 5: If the element is not found, increment the miss count and check whether the queue is full.
+            Step 6: If the queue is full, remove the front element using FIFO replacement by shifting all elements one position to the left.
+            Step 7: Insert the new element at the rear of the queue and display the updated queue content, marking the result as Miss.
+            Step 8: For a dequeue request, check whether the queue is empty.
+            Step 9: If the queue is empty, display Underflow.
+            Step 10: If the queue is not empty, delete the element at the front by incrementing front and display the updated queue content with status Deleted.
+            Step 11: Repeat enqueue and dequeue operations until all requests are completed.
+            Step 12: Calculate the hit ratio using the formula Hit Ratio = Hits / (Hits + Misses).
+            Step 13: Display the total number of hits, misses, and the hit ratio.
+            Step 14: Stop the program.
 
 
 ---
 
-## Input
-- Number of pages  
-- Page reference string  
-- Number of frames  
-- Cache size
-- Number of memory blocks
-- Memory block reference string
+## 🎯 Learning Outcomes
+
+* Understanding of page replacement algorithms
+* Cache mapping techniques
+* Hit and miss analysis
+* FIFO and LRU concepts
+* Structured tabular output interpretation
 
 ---
 
-## Output
-- Page number for each reference  
-- Hit or Miss indication  
-- Action taken (Inserted / Replaced / No change)  
-- Frame contents after each reference  
-- Total hits  
-- Total misses  
-- Hit ratio  
+## ✅ Conclusion
 
----
-
-## Algorithm Steps (Summary)
-   1. Initialize all frames as empty.
-   2. For each page reference:
-      - If the page is already in a frame, it is a **HIT**.
-      - If not present, it is a **MISS**.
-      - If a free frame exists, insert the page.
-      - Otherwise, replace the **least recently used** page.
-   3. Display the working after each reference.
-   4. Calculate and display hit ratio.
-- Block number
-- Cache line index
-- Tag
-- Hit or Miss
-- Action performed
-- Cache contents after each access
-- Total hits, misses, and hit ratio
-## Algorithm: Associative Mapping with FIFO Replacement
-
-   1. Start.
-   2. Read the number of cache lines.
-   3. Read the block size (words per block).
-   4. Read the number of memory addresses and the reference string.
-   5. Initialize all cache tags to empty (−1).
-   6. Initialize:
-      - hits = 0
-      - misses = 0
-      - filled = 0
-      - fifoIndex = 0
-   7. For each memory address:
-      - Compute TAG and WORD.
-      - Search TAG in all cache lines.
-      - If TAG found → HIT.
-      - Else → MISS:
-      - If cache not full, insert TAG.
-      - Else replace TAG using FIFO policy.
-      - Display the working in tabular format.
-   8. Calculate hit ratio.
-   9. Display total hits, misses, and hit ratio.
-   10. Stop.
-
----
-
-## Program Features
-   - Associative cache search
-   - FIFO replacement policy
-   - Step-by-step **tabular output**
-   - Displays:
-   - Address
-   - TAG
-   - WORD
-   - Hit/Miss
-   - FIFO action
-   - Cache contents
-   - Calculates hit ratio
-
----
-
-## Sample Input
-   Number of pages: 10
-   Page sequence:
-   7 0 1 2 0 3 0 4 2 3
-   Number of frames: 3
-
-
-## Sample Output (Tabular)
-      LRU PAGE REPLACEMENT (WORKING)
-      -----------------------------------------------------------------
-      | Page | Hit/Miss | Action              | Frames                  |
-      -----------------------------------------------------------------
-      |    1 | MISS     | Inserted            | 1 - - - |
-      |   55 | MISS     | Inserted            | 1 55 - - |
-      |    7 | MISS     | Inserted            | 1 55 7 - |
-      |   55 | HIT      | No change           | 1 55 7 - |
-      |    9 | MISS     | Inserted            | 1 55 7 9 |
-      |    7 | HIT      | No change           | 1 55 7 9 |
-      |    3 | MISS     | Replaced (LRU)      | 3 55 7 9 |
-      |    2 | MISS     | Replaced (LRU)      | 3 2 7 9 |
-      |    7 | HIT      | No change           | 3 2 7 9 |
-      |    6 | MISS     | Replaced (LRU)      | 3 2 7 6 |
-      -----------------------------------------------------------------
-
-Cache lines: 4
-Block size: 4
-Addresses:
-1 2 3 55 76 23 999 44 23 33
-
-
----
-
-## Sample Output (Tabular)
-         ASSOCIATIVE MAPPING WITH FIFO (WORKING)
-         -------------------------------------------------------------------------------------
-         | Address | TAG | WORD | Hit/Miss | Action (FIFO)     | Cache Contents               |
-         -------------------------------------------------------------------------------------
-         |       1 |   0 |    1 | MISS     | Inserted          | 0 - - -                      |
-         |       2 |   0 |    2 | HIT      | No Change         | 0 - - -                      |
-         |       3 |   0 |    3 | HIT      | No Change         | 0 - - -                      |
-         |      55 |  13 |    3 | MISS     | Inserted          | 0 13 - -                     |
-         |      76 |  19 |    0 | MISS     | Inserted          | 0 13 19 -                    |
-         |      23 |   5 |    3 | MISS     | Inserted          | 0 13 19 5                    |
-         |     999 | 249 |    3 | MISS     | Replaced line 0   | 249 13 19 5                  |
-         |      44 |  11 |    0 | MISS     | Replaced line 1   | 249 11 19 5                  |
-         |      23 |   5 |    3 | HIT      | No Change         | 249 11 19 5                  |
-         |      33 |   8 |    1 | MISS     | Replaced line 2   | 249 11 8 5                   |
-         |      44 |  11 |    0 | HIT      | No Change         | 249 11 8 5                   |
-         |      55 |  13 |    3 | MISS     | Replaced line 3   | 249 11 8 13                  |
-         -------------------------------------------------------------------------------------
-
-         Total Hits   = 4
-         Total Misses = 8
-         Hit Ratio    = 0.33
-
-...
-
----
-
-## Technologies Used
-- Programming Language: **C**
-- Compiler: GCC / Turbo C
-- Platform: Windows / Linux
-   Cache size: 4
-   Blocks: 1 2 3 4 5 1 6 2 7 3
-
----
-## Sample Output
-      DIRECT MAPPING CACHE (WORKING)
-      ---------------------------------------------------------------------------------
-      | Block | Index | Tag | Hit/Miss | Action           | Cache Contents            |
-      ---------------------------------------------------------------------------------
-      |     1 |     1 |   0 | MISS     | Loaded/Replaced  | - 0 - - |
-      |     2 |     2 |   0 | MISS     | Loaded/Replaced  | - 0 0 - |
-      |     3 |     3 |   0 | MISS     | Loaded/Replaced  | - 0 0 0 |
-      |     4 |     0 |   1 | MISS     | Loaded/Replaced  | 1 0 0 0 |
-      |     5 |     1 |   1 | MISS     | Loaded/Replaced  | 1 1 0 0 |
-      |     1 |     1 |   0 | MISS     | Loaded/Replaced  | 1 0 0 0 |
-      |     6 |     2 |   1 | MISS     | Loaded/Replaced  | 1 0 1 0 |
-      |     2 |     2 |   0 | MISS     | Loaded/Replaced  | 1 0 0 0 |
-      |     7 |     3 |   1 | MISS     | Loaded/Replaced  | 1 0 0 1 |
-      |     3 |     3 |   0 | MISS     | Loaded/Replaced  | 1 0 0 0 |
-      ---------------------------------------------------------------------------------
-
-      Total Hits   = 0
-      Total Misses = 10
-      Hit Ratio    = 0.00
-
-- Programming Language: C
-- Compiler: GCC / Turbo C
-- Platform: Windows / Linux
-
----
-
-## Learning Outcomes
-- Understanding of **page replacement techniques**
-- Practical knowledge of **LRU algorithm**
-- Ability to analyze **hit and miss behavior**
-- Visualization of memory frames using tabular output
-- Understanding of **fixed mapping**
-- Knowledge of **cache conflicts**
-- Ability to analyze cache efficiency
-- Clear understanding of associative cache mapping
-- Practical implementation of FIFO replacement
-- Insight into cache hit and miss behavior
-- Ability to visualize cache working using tables
-
----
-
-## Conclusion
-The LRU page replacement algorithm efficiently manages memory by removing the page that has not been accessed for the longest time. This implementation clearly demonstrates the working of the algorithm and is suitable for laboratory and academic use.
-
----
-Direct mapping is simple and fast but suffers from conflict misses.
-This program clearly demonstrates its working using tabular representation.
-
----
-This program demonstrates how associative cache mapping works with FIFO replacement. By showing the internal working in a tabular format, it provides a clear understanding of cache behavior, making it suitable for academic and lab record submissions.
-
----
-# Queue Implementation in C
-A simple C program demonstrating the fundamentals of the Queue data structure using the FIFO (First In, First Out) principle.
-
-## Overview
-This project implements a basic array-based queue and simulates common queue operations such as insertion, deletion, viewing the front element, and displaying all queue elements.
-
-This program helps beginners understand:
-- How queues work  
-- How front and rear pointers update  
-- Overflow and underflow conditions  
-- FIFO behavior in data structures
-
-
-## Queue Structure
-The queue uses an array and maintains two pointers:
-
-- front – Index of the first element  
-- rear – Index of the last element  
-
-### Queue Operations
-- Enqueue – Insert an element  
-- Dequeue – Remove an element  
-- Peek – View the first element  
-- Display – Show all elements  
-- Handles Queue Overflow and Queue Underflow
-
-## How It Works
-A queue follows the FIFO principle:
-
-
+This project provides a **clear, structured, and professional demonstration** of key concepts in **Operating Systems, Cache Memory, and Data Structures**, making it ideal for **college lab records, viva preparation, and group evaluation**.
