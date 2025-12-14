@@ -1,0 +1,29 @@
+DIRECT MAPPING CACHE (WORKING)
+---------------------------------------------------------------------------------
+| Block | Index | Tag | Hit/Miss | Action           | Cache Contents            |
+---------------------------------------------------------------------------------
+|     1 |     1 |   0 | MISS     | Loaded/Replaced  | - 0 - |
+|     2 |     2 |   0 | MISS     | Loaded/Replaced  | - 0 0 |
+|     3 |     0 |   1 | MISS     | Loaded/Replaced  | 1 0 0 |
+|     4 |     1 |   1 | MISS     | Loaded/Replaced  | 1 1 0 |
+|     5 |     2 |   1 | MISS     | Loaded/Replaced  | 1 1 1 |
+|     1 |     1 |   0 | MISS     | Loaded/Replaced  | 1 0 1 |
+|     2 |     2 |   0 | MISS     | Loaded/Replaced  | 1 0 0 |
+|     3 |     0 |   1 | HIT      | No Change        | 1 0 0 |
+|     4 |     1 |   1 | MISS     | Loaded/Replaced  | 1 1 0 |
+|     5 |     2 |   1 | MISS     | Loaded/Replaced  | 1 1 1 |
+|     6 |     0 |   2 | MISS     | Loaded/Replaced  | 2 1 1 |
+|     7 |     1 |   2 | MISS     | Loaded/Replaced  | 2 2 1 |
+|     8 |     2 |   2 | MISS     | Loaded/Replaced  | 2 2 2 |
+|     5 |     2 |   1 | MISS     | Loaded/Replaced  | 2 2 1 |
+|    44 |     2 |  14 | MISS     | Loaded/Replaced  | 2 2 14 |
+|     3 |     0 |   1 | MISS     | Loaded/Replaced  | 1 2 14 |
+|   777 |     0 | 259 | MISS     | Loaded/Replaced  | 259 2 14 |
+|   777 |     0 | 259 | HIT      | No Change        | 259 2 14 |
+|   333 |     0 | 111 | MISS     | Loaded/Replaced  | 111 2 14 |
+|   222 |     0 |  74 | MISS     | Loaded/Replaced  | 74 2 14 |
+---------------------------------------------------------------------------------
+
+Total Hits   = 2
+Total Misses = 18
+Hit Ratio    = 0.10
