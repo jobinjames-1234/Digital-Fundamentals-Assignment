@@ -62,21 +62,21 @@ When a page fault occurs and no free frame is available, the page that was **use
 
 
 ## Sample Output (Tabular)
-   LRU PAGE REPLACEMENT (WORKING)
-   -----------------------------------------------------------------
-   | Page | Hit/Miss | Action              | Frames                  |
-   -----------------------------------------------------------------
-   |    1 | MISS     | Inserted            | 1 - - - |
-   |   55 | MISS     | Inserted            | 1 55 - - |
-   |    7 | MISS     | Inserted            | 1 55 7 - |
-   |   55 | HIT      | No change           | 1 55 7 - |
-   |    9 | MISS     | Inserted            | 1 55 7 9 |
-   |    7 | HIT      | No change           | 1 55 7 9 |
-   |    3 | MISS     | Replaced (LRU)      | 3 55 7 9 |
-   |    2 | MISS     | Replaced (LRU)      | 3 2 7 9 |
-   |    7 | HIT      | No change           | 3 2 7 9 |
-   |    6 | MISS     | Replaced (LRU)      | 3 2 7 6 |
-   -----------------------------------------------------------------
+      LRU PAGE REPLACEMENT (WORKING)
+      -----------------------------------------------------------------
+      | Page | Hit/Miss | Action              | Frames                  |
+      -----------------------------------------------------------------
+      |    1 | MISS     | Inserted            | 1 - - - |
+      |   55 | MISS     | Inserted            | 1 55 - - |
+      |    7 | MISS     | Inserted            | 1 55 7 - |
+      |   55 | HIT      | No change           | 1 55 7 - |
+      |    9 | MISS     | Inserted            | 1 55 7 9 |
+      |    7 | HIT      | No change           | 1 55 7 9 |
+      |    3 | MISS     | Replaced (LRU)      | 3 55 7 9 |
+      |    2 | MISS     | Replaced (LRU)      | 3 2 7 9 |
+      |    7 | HIT      | No change           | 3 2 7 9 |
+      |    6 | MISS     | Replaced (LRU)      | 3 2 7 6 |
+      -----------------------------------------------------------------
 
 
 ---
