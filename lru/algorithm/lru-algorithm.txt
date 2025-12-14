@@ -1,0 +1,68 @@
+Algorithm: LRU (Least Recently Used) Page Replacement
+
+Step 1: Start.
+
+Step 2: Read the number of pages.
+
+Step 3: Read the page reference string.
+
+Step 4: Read the number of frames.
+
+Step 5: Initialize all frames to empty (−1) and initialize the time counter for each frame to 0.
+
+Step 6: Initialize:
+
+hits = 0
+
+misses = 0
+
+counter = 0
+
+Step 7: For each page in the reference string, perform the following steps:
+
+  Step 7.1: Check whether the page is already present in any frame.
+
+  Step 7.2: If the page is found in a frame (HIT):
+
+Increment hits.
+
+Increment counter.
+
+Update the time of the corresponding frame with the current counter value.
+
+No replacement is performed.
+
+  Step 7.3: Else (page not found – MISS):
+
+Increment misses.
+
+    Step 7.3.1: Check for an empty frame.
+
+If an empty frame is available:
+
+Insert the page into the empty frame.
+
+Increment counter.
+
+Update the time of that frame.
+
+    Step 7.3.2: If no empty frame is available:
+
+Find the frame with the least recent usage time.
+
+Replace that frame with the new page.
+
+Increment counter.
+
+Update the time of the replaced frame.
+
+  Step 7.4: Display the current page number, hit/miss status, action taken, and the contents of all frames in tabular format.
+
+Step 8: After processing all pages, calculate:
+
+Hit Ratio = hits / (hits + misses)
+
+
+Step 9: Display the total number of hits, total number of misses, and the hit ratio.
+
+Step 10: Stop.
