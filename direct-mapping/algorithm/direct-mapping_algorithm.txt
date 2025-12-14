@@ -1,0 +1,56 @@
+Algorithm: Direct Mapping Cache Memory
+
+Step 1: Start.
+
+Step 2: Read the cache size.
+
+Step 3: Read the number of memory block references.
+
+Step 4: Read the memory block reference string.
+
+Step 5: Initialize all cache lines as empty by setting their tags to −1.
+
+Step 6: Initialize:
+
+hits = 0
+
+misses = 0
+
+Step 7: For each memory block in the reference string, perform the following steps:
+
+  Step 7.1: Calculate the cache line index using:
+    Index = BlockNumber % CacheSize
+
+  Step 7.2: Calculate the tag using:
+    Tag = BlockNumber / CacheSize
+
+  Step 7.3: Compare the calculated tag with the tag stored in the cache line at the computed index.
+
+  Step 7.4: If the tags match:
+
+Increment hits.
+
+Mark the access as HIT.
+
+No change is made to the cache.
+
+  Step 7.5: Else (tags do not match):
+
+Increment misses.
+
+Mark the access as MISS.
+
+Load the memory block into the computed cache line.
+
+Update the tag stored in that cache line.
+
+  Step 7.6: Display the block number, index, tag, hit/miss status, action taken, and the current cache contents in tabular form.
+
+Step 8: After processing all memory blocks, calculate:
+
+Hit Ratio = hits / (hits + misses)
+
+
+Step 9: Display the total number of hits, total number of misses, and the hit ratio.
+
+Step 10: Stop.
