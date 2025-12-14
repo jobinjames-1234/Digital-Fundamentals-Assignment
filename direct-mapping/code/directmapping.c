@@ -1,46 +1,64 @@
 #include <stdio.h>
 
-#define CACHE_SIZE 8      
-#define MEMORY_SIZE 32    
-struct CacheLine {
-    int valid;
-    int tag;
-    int data;
-};
 int main() {
-    struct CacheLine cache[CACHE_SIZE];
-    int memory[MEMORY_SIZE];
-    for (int i = 0; i < CACHE_SIZE; i++) {
-        cache[i].valid = 0;
-        cache[i].tag = -1;
-        cache[i].data = -1;
+    int cacheSize, n;
+    int cacheTag[20], cacheData[20];
+    int blocks[50];
+    int hits = 0, misses = 0;
+    int i, index, tag;
+
+    printf("Enter cache size: ");
+    scanf("%d", &cacheSize);
+
+    printf("Enter number of memory blocks: ");
+    scanf("%d", &n);
+
+    printf("Enter memory block sequence:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &blocks[i]);
     }
 
-    for (int i = 0; i < MEMORY_SIZE; i++) {
-        memory[i] = i * 10;  
+    // Initialize cache
+    for (i = 0; i < cacheSize; i++) {
+        cacheTag[i] = -1;
+        cacheData[i] = -1;
     }
-    int address;
-    printf("Enter memory block number (0 to %d): ", MEMORY_SIZE - 1);
-    scanf("%d", &address);
-    if (address < 0 || address >= MEMORY_SIZE) {
-        printf("Invalid address!\n");
-        return 0;
+
+    // Table header
+    printf("\nDIRECT MAPPING CACHE (WORKING)\n");
+    printf("---------------------------------------------------------------------------------\n");
+    printf("| Block | Index | Tag | Hit/Miss | Action           | Cache Contents            |\n");
+    printf("---------------------------------------------------------------------------------\n");
+
+    for (i = 0; i < n; i++) {
+        index = blocks[i] % cacheSize;
+        tag   = blocks[i] / cacheSize;
+
+        if (cacheTag[index] == tag) {
+            hits++;
+            printf("| %5d | %5d | %3d | HIT      | No Change        | ",
+                   blocks[i], index, tag);
+        } else {
+            misses++;
+            cacheTag[index] = tag;
+            cacheData[index] = blocks[i];
+            printf("| %5d | %5d | %3d | MISS     | Loaded/Replaced  | ",
+                   blocks[i], index, tag);
+        }
+
+        for (int j = 0; j < cacheSize; j++) {
+            if (cacheTag[j] != -1)
+                printf("%d ", cacheTag[j]);
+            else
+                printf("- ");
+        }
+        printf("|\n");
     }
-    int cache_index = address % CACHE_SIZE;
-    int tag = address / CACHE_SIZE;
-    printf("\nMemory Block: %d\n", address);
-    printf("Cache Line Index (address %% cache_size): %d\n", cache_index);
-    printf("Tag (address / cache_size): %d\n\n", tag);
-    if (cache[cache_index].valid && cache[cache_index].tag == tag) {
-        printf("CACHE HIT!\n");
-        printf("Data in cache: %d\n", cache[cache_index].data);
-    } else {
-        printf("CACHE MISS!\n");
-        printf("Loading block %d into cache line %d...\n", address, cache_index);
-        cache[cache_index].valid = 1;
-        cache[cache_index].tag = tag;
-        cache[cache_index].data = memory[address];
-        printf("New data in cache: %d\n", cache[cache_index].data);
-    }
+
+    printf("---------------------------------------------------------------------------------\n");
+    printf("\nTotal Hits   = %d", hits);
+    printf("\nTotal Misses = %d", misses);
+    printf("\nHit Ratio    = %.2f\n", (float)hits / (hits + misses));
+
     return 0;
 }
