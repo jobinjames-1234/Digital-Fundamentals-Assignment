@@ -1,3 +1,7 @@
 .vscode/
 
 a.exe
+
+*.png
+
+!assosiative-mapping-workflow.png
