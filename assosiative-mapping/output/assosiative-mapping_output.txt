@@ -1,0 +1,19 @@
+ASSOCIATIVE MAPPING WITH FIFO (WORKING)
+-------------------------------------------------------------------------------------
+| Address | TAG | WORD | Hit/Miss | Action (FIFO)     | Cache Contents               |
+-------------------------------------------------------------------------------------
+|       1 |   0 |    1 | MISS     | Inserted           | 0 - - - |
+|      55 |  13 |    3 | MISS     | Inserted           | 0 13 - - |
+|      77 |  19 |    1 | MISS     | Inserted           | 0 13 19 - |
+|      88 |  22 |    0 | MISS     | Inserted           | 0 13 19 22 |
+|      77 |  19 |    1 | HIT      | Hit (No replace)   | 0 13 19 22 |
+|      44 |  11 |    0 | MISS     | Replaced line 0    | 11 13 19 22 |
+|      66 |  16 |    2 | MISS     | Replaced line 1    | 11 16 19 22 |
+|      77 |  19 |    1 | HIT      | Hit (No replace)   | 11 16 19 22 |
+|       2 |   0 |    2 | MISS     | Replaced line 2    | 11 16 0 22 |
+|       3 |   0 |    3 | HIT      | Hit (No replace)   | 11 16 0 22 |
+-------------------------------------------------------------------------------------
+
+Total Hits   = 3
+Total Misses = 7
+Hit Ratio    = 0.30
