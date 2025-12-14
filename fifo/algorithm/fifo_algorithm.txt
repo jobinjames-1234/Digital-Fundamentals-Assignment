@@ -1,0 +1,14 @@
+Step 1: Start the program.
+Step 2: Declare the queue array with fixed size and initialize front = -1, rear = -1, hits = 0, and misses = 0.
+Step 3: For each enqueue request, check whether the element is already present in the queue by scanning from front to rear.
+Step 4: If the element is found, increment the hit count, display the current queue content, and mark the result as Hit.
+Step 5: If the element is not found, increment the miss count and check whether the queue is full.
+Step 6: If the queue is full, remove the front element using FIFO replacement by shifting all elements one position to the left.
+Step 7: Insert the new element at the rear of the queue and display the updated queue content, marking the result as Miss.
+Step 8: For a dequeue request, check whether the queue is empty.
+Step 9: If the queue is empty, display Underflow.
+Step 10: If the queue is not empty, delete the element at the front by incrementing front and display the updated queue content with status Deleted.
+Step 11: Repeat enqueue and dequeue operations until all requests are completed.
+Step 12: Calculate the hit ratio using the formula Hit Ratio = Hits / (Hits + Misses).
+Step 13: Display the total number of hits, misses, and the hit ratio.
+Step 14: Stop the program.
