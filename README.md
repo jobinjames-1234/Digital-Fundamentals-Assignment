@@ -1,81 +1,92 @@
-# Direct-Mapped Cache Simulation
-
-A C program demonstrating the fundamentals of direct-mapped cache memory in computer architecture.
+# Direct Mapping Cache Simulation
 
 ## Overview
+This project implements **Direct Mapping Cache Memory** in C.  
+Each memory block is mapped to exactly one cache line using a fixed mapping function.
 
-This project implements a simplified direct-mapped cache system that simulates how CPU caches work. It shows the concepts of cache hits, cache misses, and memory access patterns in a direct-mapped cache architecture.
+The program displays the cache working **step-by-step in tabular format**, including
+block number, index calculation, tag comparison, hit/miss status, and cache contents.
 
-## Project Structure
+---
 
-- `directmapping.c` - Main implementation of the direct-mapped cache simulator
+## Objectives
+- To understand **direct mapping cache technique**
+- To compute **index and tag values**
+- To identify **cache hits and misses**
+- To visualize cache behavior using **tabular output**
+- To calculate **hit ratio**
 
-## How It Works
+---
 
-### Cache Configuration
-- **Cache Size**: 8 lines
-- **Memory Size**: 32 blocks
-- **Cache Type**: Direct-mapped (1 block can only map to 1 cache line)
+## Address Mapping
+In Direct Mapping, the address is divided as:
 
-### Cache Structure
-Each cache line contains:
-- **Valid bit**: Indicates if the cache line contains valid data
-- **Tag**: Used to identify which memory block is stored in the cache line
-- **Data**: The actual data from the memory block
+| TAG | INDEX |
 
-### Direct Mapping Formula
-For a given memory address:
-- **Cache Index** = `address % CACHE_SIZE`
-- **Tag** = `address / CACHE_SIZE`
 
-## Usage
+Formulas:
+Index = BlockNumber % CacheSize
+Tag = BlockNumber / CacheSize
 
-1. **Compile the program**:
-   ```bash
-   gcc -o directmapping directmapping.c
-   ```
 
-2. **Run the program**:
-   ```bash
-   ./directmapping
-   ```
+---
 
-3. **Enter a memory block number** (0 to 31) when prompted
+## Input
+- Cache size
+- Number of memory blocks
+- Memory block reference string
 
-4. The program will:
-   - Calculate the cache line index and tag
-   - Check if the data is already in the cache (cache hit)
-   - Load the data from memory if not in cache (cache miss)
-   - Display the results
+---
 
-## Example Output
+## Output
+- Block number
+- Cache line index
+- Tag
+- Hit or Miss
+- Action performed
+- Cache contents after each access
+- Total hits, misses, and hit ratio
 
-```
-Enter memory block number (0 to 31): 5
+---
 
-Memory Block: 5
-Cache Line Index (address % cache_size): 5
-Tag (address / cache_size): 0
+## Sample Input
+   Cache size: 4
+   Blocks: 1 2 3 4 5 1 6 2 7 3
 
-CACHE MISS!
-Loading block 5 into cache line 5...
-New data in cache: 50
-```
+---
+## Sample Output
+DIRECT MAPPING CACHE (WORKING)
+---------------------------------------------------------------------------------
+| Block | Index | Tag | Hit/Miss | Action           | Cache Contents            |
+---------------------------------------------------------------------------------
+|     1 |     1 |   0 | MISS     | Loaded/Replaced  | - 0 - - |
+|     2 |     2 |   0 | MISS     | Loaded/Replaced  | - 0 0 - |
+|     3 |     3 |   0 | MISS     | Loaded/Replaced  | - 0 0 0 |
+|     4 |     0 |   1 | MISS     | Loaded/Replaced  | 1 0 0 0 |
+|     5 |     1 |   1 | MISS     | Loaded/Replaced  | 1 1 0 0 |
+|     1 |     1 |   0 | MISS     | Loaded/Replaced  | 1 0 0 0 |
+|     6 |     2 |   1 | MISS     | Loaded/Replaced  | 1 0 1 0 |
+|     2 |     2 |   0 | MISS     | Loaded/Replaced  | 1 0 0 0 |
+|     7 |     3 |   1 | MISS     | Loaded/Replaced  | 1 0 0 1 |
+|     3 |     3 |   0 | MISS     | Loaded/Replaced  | 1 0 0 0 |
+---------------------------------------------------------------------------------
 
-## Learning Objectives
+Total Hits   = 0
+Total Misses = 10
+Hit Ratio    = 0.00
 
-This project demonstrates:
-- Cache organization and addressing
-- Direct-mapped cache behavior
-- Cache hit vs. cache miss scenarios
-- Tag and index calculation
-- Basic memory hierarchy concepts
 
-## Requirements
+---
 
-- GCC compiler (or any standard C compiler)
-- C standard library (stdio.h)
+## Learning Outcomes
+- Understanding of **fixed mapping**
+- Knowledge of **cache conflicts**
+- Ability to analyze cache efficiency
 
-## Author
+---
 
-Digital Fundamentals Assignment
+## Conclusion
+Direct mapping is simple and fast but suffers from conflict misses.
+This program clearly demonstrates its working using tabular representation.
+
+---
