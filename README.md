@@ -87,27 +87,27 @@ Addresses:
 ---
 
 ## Sample Output (Tabular)
-ASSOCIATIVE MAPPING WITH FIFO (WORKING)
-   -------------------------------------------------------------------------------------
-   | Address | TAG | WORD | Hit/Miss | Action (FIFO)     | Cache Contents               |
-   -------------------------------------------------------------------------------------
-   |       1 |   0 |    1 | MISS     | Inserted          | 0 - - -                      |
-   |       2 |   0 |    2 | HIT      | No Change         | 0 - - -                      |
-   |       3 |   0 |    3 | HIT      | No Change         | 0 - - -                      |
-   |      55 |  13 |    3 | MISS     | Inserted          | 0 13 - -                     |
-   |      76 |  19 |    0 | MISS     | Inserted          | 0 13 19 -                    |
-   |      23 |   5 |    3 | MISS     | Inserted          | 0 13 19 5                    |
-   |     999 | 249 |    3 | MISS     | Replaced line 0   | 249 13 19 5                  |
-   |      44 |  11 |    0 | MISS     | Replaced line 1   | 249 11 19 5                  |
-   |      23 |   5 |    3 | HIT      | No Change         | 249 11 19 5                  |
-   |      33 |   8 |    1 | MISS     | Replaced line 2   | 249 11 8 5                   |
-   |      44 |  11 |    0 | HIT      | No Change         | 249 11 8 5                   |
-   |      55 |  13 |    3 | MISS     | Replaced line 3   | 249 11 8 13                  |
-   -------------------------------------------------------------------------------------
+         ASSOCIATIVE MAPPING WITH FIFO (WORKING)
+         -------------------------------------------------------------------------------------
+         | Address | TAG | WORD | Hit/Miss | Action (FIFO)     | Cache Contents               |
+         -------------------------------------------------------------------------------------
+         |       1 |   0 |    1 | MISS     | Inserted          | 0 - - -                      |
+         |       2 |   0 |    2 | HIT      | No Change         | 0 - - -                      |
+         |       3 |   0 |    3 | HIT      | No Change         | 0 - - -                      |
+         |      55 |  13 |    3 | MISS     | Inserted          | 0 13 - -                     |
+         |      76 |  19 |    0 | MISS     | Inserted          | 0 13 19 -                    |
+         |      23 |   5 |    3 | MISS     | Inserted          | 0 13 19 5                    |
+         |     999 | 249 |    3 | MISS     | Replaced line 0   | 249 13 19 5                  |
+         |      44 |  11 |    0 | MISS     | Replaced line 1   | 249 11 19 5                  |
+         |      23 |   5 |    3 | HIT      | No Change         | 249 11 19 5                  |
+         |      33 |   8 |    1 | MISS     | Replaced line 2   | 249 11 8 5                   |
+         |      44 |  11 |    0 | HIT      | No Change         | 249 11 8 5                   |
+         |      55 |  13 |    3 | MISS     | Replaced line 3   | 249 11 8 13                  |
+         -------------------------------------------------------------------------------------
 
-   Total Hits   = 4
-   Total Misses = 8
-   Hit Ratio    = 0.33
+         Total Hits   = 4
+         Total Misses = 8
+         Hit Ratio    = 0.33
 
 ...
 
